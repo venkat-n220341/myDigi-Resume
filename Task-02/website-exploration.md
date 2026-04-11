@@ -96,3 +96,45 @@ Method used: Checked each live website with browser-source/inspect-style class s
 - Grid system observed: `container`, `row`, `col-*`, gutters (`g-*`)
 - Components observed: Navbar, Dropdown, Collapse/Accordion, Modal, Cards, Buttons, Badges
 - Responsive utilities observed: `d-none`, `d-*-*`, responsive columns (`col-sm-*`, `col-md-*`, `col-lg-*`)
+
+## Complete Bootstrap CSS Component Checklist
+
+Status legend:
+- Covered in this exploration: clearly observed and documented above.
+- Not covered in this exploration: not explicitly observed in the current website notes.
+
+Covered in this exploration:
+- Accordion
+- Badges
+- Buttons
+- Cards
+- Collapse
+- Dropdowns
+- Modal
+- Navbar
+
+Not covered in this exploration:
+- Alerts
+- Breadcrumb
+- Button group
+- Carousel
+- Close button
+- List group
+- Offcanvas
+- Pagination
+- Placeholders
+- Popovers
+- Progress
+- Scrollspy
+- Spinners
+- Toasts
+- Tooltips
+
+Related Bootstrap content sections (not counted as standalone components above):
+- Grid system
+- Responsive display utilities
+- Spacing and layout utilities
+- Typography and helper utilities
+
+Note:
+- This document analyzes real-world usage across selected websites, so it does not guarantee that every Bootstrap component appears in those examples.

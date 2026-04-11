@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jQuery Practice</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+
+    .btn {
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 6px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      margin: 5px 5px 5px 0;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+    }
+
+    .item {
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fafafa;
+    }
+
+    .highlight {
+      background: #fff3b0;
+      border-color: #f59e0b;
+    }
+
+    .active {
+      background: #dcfce7;
+      border-color: #22c55e;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      max-width: 320px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    #boxEffect {
+      display: none;
+      margin-top: 12px;
+      padding: 12px;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <h1>jQuery Practice</h1>
+      <p>Simple examples for selectors, attributes, events, DOM traversal, styling, and effects.</p>
+    </div>
+
+    <div class="box">
+      <h2>Selectors and Styling</h2>
+      <div class="item">Item 1</div>
+      <div class="item special">Item 2</div>
+      <div class="item">Item 3</div>
+      <button class="btn" id="selectAll">Select All</button>
+      <button class="btn" id="highlightSpecial">Highlight Special</button>
+      <button class="btn" id="changeStyle">Change Style</button>
+    </div>
+
+    <div class="box">
+      <h2>Attributes and Events</h2>
+      <input type="text" id="nameInput" placeholder="Type your name" />
+      <button class="btn" id="showName">Show Name</button>
+      <button class="btn" id="changePlaceholder">Change Placeholder</button>
+      <p id="message">Message will appear here.</p>
+    </div>
+
+    <div class="box">
+      <h2>DOM Traversal</h2>
+      <ul id="fruitList">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Orange</li>
+      </ul>
+      <button class="btn" id="firstFruit">First Fruit</button>
+      <button class="btn" id="nextFruit">Next Fruit</button>
+      <button class="btn" id="parentList">Highlight Parent</button>
+    </div>
+
+    <div class="box">
+      <h2>Effects</h2>
+      <button class="btn" id="toggleBox">Toggle Box</button>
+      <button class="btn" id="fadeBox">Fade Box</button>
+      <button class="btn" id="slideBox">Slide Box</button>
+      <div id="boxEffect">This box is used to show jQuery effects.</div>
+    </div>
+  </div>
+
+  <script>
+    $(function () {
+      $('#selectAll').click(function () {
+        $('.item').addClass('active');
+        $('#message').text('All items selected using class selector.');
+      });
+
+      $('#highlightSpecial').click(function () {
+        $('.special').addClass('highlight');
+        $('#message').text('Special item highlighted.');
+      });
+
+      $('#changeStyle').click(function () {
+        $('.item').css({
+          color: '#0f172a',
+          fontWeight: 'bold'
+        });
+        $('#message').text('Style changed using jQuery css().');
+      });
+
+      $('#showName').click(function () {
+        const name = $('#nameInput').val();
+        $('#message').text(name ? 'Hello, ' + name + '!' : 'Please enter your name.');
+      });
+
+      $('#changePlaceholder').click(function () {
+        $('#nameInput').attr('placeholder', 'Type your full name');
+        $('#message').text('Placeholder changed using attr().');
+      });
+
+      $('#firstFruit').click(function () {
+        $('#fruitList li').removeClass('highlight');
+        $('#fruitList li:first').addClass('highlight');
+        $('#message').text('First fruit selected using :first.');
+      });
+
+      $('#nextFruit').click(function () {
+        $('#fruitList li').removeClass('highlight');
+        $('#fruitList li:first').next().addClass('highlight');
+        $('#message').text('Next fruit selected using next().');
+      });
+
+      $('#parentList').click(function () {
+        $('#fruitList').css('border', '2px solid #2563eb');
+        $('#message').text('Parent list highlighted using parent/traversal idea.');
+      });
+
+      $('#toggleBox').click(function () {
+        $('#boxEffect').toggle();
+      });
+
+      $('#fadeBox').click(function () {
+        $('#boxEffect').fadeToggle(300);
+      });
+
+      $('#slideBox').click(function () {
+        $('#boxEffect').slideToggle(300);
+      });
+    });
+  </script>
+</body>
+</html>
